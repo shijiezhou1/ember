@@ -1,11 +1,11 @@
 import DS from 'ember-data';
+import { camelize } from '@ember/string'; // NEW ADD 
 
 export default DS.RESTAdapter.extend({
     // SPECIFY THE URL OF YOUR BACK END API
     host: 'https://api.jsonbin.io/b',
     pathForType: function(type) {
-        var camelized = Ember.String.camelize(type);
-        return camelized; //Ember.String.pluralize(camelized);
+        return camelize(type); //Ember.String.pluralize(camelized);
     },
     // UPDATE ADAPTER
     buildURL: function(record, suffix) {
@@ -14,9 +14,7 @@ export default DS.RESTAdapter.extend({
     },
     init(){
         this._super(...arguments);
-        this.set('headers', {
-            'secret-key': '$2a$10$C9myd8H8imc2n/IfMm9hreRO.fr7O3UM4K9fQvz6Zbf1JctfeTBI2',
-        });
+        this.set('headers', {'secret-key': '$2a$10$C9myd8H8imc2n/IfMm9hreRO.fr7O3UM4K9fQvz6Zbf1JctfeTBI2',});
     }
    
 });
