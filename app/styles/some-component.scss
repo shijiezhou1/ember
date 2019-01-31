@@ -1,0 +1,12 @@
+// usage:
+div.my-awesome-class {
+    @include theme('color', 'primary');
+  }
+  
+  // results in the output:
+  div.my-awesome-class[data-theme="default-first"] {
+    color: #58b15f;
+  }
+  div.my-awesome-class[data-theme="default-second"] {
+    color: #287f6e;
+  }
