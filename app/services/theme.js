@@ -1,31 +1,32 @@
 import Service from "@ember/service";
-import Ember from 'ember';
+import { computed, observer } from '@ember/object';
+import { isEmpty } from '@ember/utils';
 
-export default Ember.Service.extend({
+export default Service.extend({
 
   base: 'default',
   theme: 'first',
 
   // the property used as a reference for styles
-  name: Ember.computed('base', function() {
+  name: computed('base', function() {
     const base = this.get('base');
     const theme = this.get('theme');
     return `${base}-${theme}`;
   }),
 
   // update things that may be using data-theme
-  themeChanged: Ember.observer('base', 'theme', function() {
+  themeChanged: observer('base', 'theme', function() {
     this.notifyPropertyChange('name');
   }),
 
   // set the base theme for the application
   setBase: function(base) {
-    this.set('base', Ember.isEmpty(base) ? 'default' : base);
+    this.set('base', isEmpty(base) ? 'default' : base);
   },
 
   // set theme to use within base theme
   setTheme: function(theme) {
-    this.set('theme', Ember.isEmpty(theme) ? 'first' : theme);
+    this.set('theme', isEmpty(theme) ? 'first' : theme);
   }
 
 });
