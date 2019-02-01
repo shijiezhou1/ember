@@ -3,7 +3,7 @@ import Ember from "ember";
 export default function() {
   const Light = Ember.Object.extend({
     init() {
-      alert("the isObkect propery id defaulted to " + this.get("isOn"));
+      console.log("the isObkect propery id defaulted to " + this.get("isOn"));
     },
     isOn: false
   });
@@ -17,4 +17,5 @@ export default function() {
 
   console.log(bulb.get("color"));
   console.log(bulb.wattage);
+
 }

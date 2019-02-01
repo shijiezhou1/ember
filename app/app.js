@@ -5,7 +5,7 @@ import config from './config/environment';
 
 //test
 import myObject from './myObject';
-// myObject();
+myObject();
 //end test
 
 const App = Application.extend({
