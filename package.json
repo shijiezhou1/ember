@@ -47,6 +47,9 @@
     "qunit-dom": "^0.8.0",
     "sass": "^1.16.1"
   },
+  "devDependencies": {
+    "jquery": "^3.4.0"
+  }
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   }
